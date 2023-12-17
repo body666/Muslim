@@ -8,21 +8,23 @@ static const String routeName ="SuraDetails";
 @override
   State<SuraDetails> createState() => _SuraDetailsState();
 }
-List<String> verses=[];
+
 class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
 
+    SuraModel args = ModalRoute.of(context)?.settings.arguments as SuraModel;
+    if(verses.isEmpty){
+      loadfile(args.index);
+    }
 
-    var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
-    if(verses.isEmpty)
-      {
-        loadfile(args.index);
-      }
+
+
     return  Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/default_bg.png")
+          image: AssetImage("assets/images/default_bg.png"),
+          fit: BoxFit.cover
         )
       ),
       child: Scaffold(
@@ -58,11 +60,11 @@ class _SuraDetailsState extends State<SuraDetails> {
       ),
     );
   }
-
+  List<String> verses=[];
  void loadfile(int index)async{
    String sura =await rootBundle.loadString("assets/files/${index+1}.txt");
    List<String> lines=sura.split("\n");
-   print(lines);
+  // print(lines);
    verses =lines;
    setState(() {
 
