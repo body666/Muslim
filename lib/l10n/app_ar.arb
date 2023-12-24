@@ -1,7 +1,11 @@
 {
   "appTitle": "إسلامي",
   "suraName": "اسم السوره ",
-  "ahadeth" : "الاحاديث",
-  "Sebha Counter": "عدد التسبيحات"
+  "ahadeth" : "الأحاديث",
+  "sebhaCounter": "عدد التسبيحات",
+  "holyQuranRadio": "إذاعه القران الكريم",
+  "english": "اللغه الإنجليزيه ",
+  "arabic": "اللغه العربيه"
+
 
 }
