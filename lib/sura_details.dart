@@ -12,13 +12,10 @@ static const String routeName ="SuraDetails";
 class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
-
     SuraModel args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if(verses.isEmpty){
       loadfile(args.index);
     }
-
-
 
     return  Container(
       decoration: BoxDecoration(
@@ -39,23 +36,27 @@ class _SuraDetailsState extends State<SuraDetails> {
           shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25),
             borderSide: BorderSide(
+              width: 2,
               color: MyThemeData.primarycolor,
             )
           ),
-          child: ListView.separated(
-               separatorBuilder:(context, index) => Divider(
-                        indent: 40,
-                      endIndent:40 ,
-                     thickness: 1,
-                     ),
-              itemBuilder: (context,index) {
-                return Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Text("${verses[index]}(${index+1})",
-                    textAlign:TextAlign.center ,),
-                );
-              },
-          itemCount: verses.length),
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: ListView.separated(
+                 separatorBuilder:(context, index) => Divider(
+                          indent: 40,
+                        endIndent:40 ,
+                       thickness: 1,
+                       ),
+                itemBuilder: (context,index) {
+                  return Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Text("${verses[index]}(${index+1})",
+                      textAlign:TextAlign.center ,),
+                  );
+                },
+            itemCount: verses.length),
+          ),
         ),
       ),
     );
@@ -64,7 +65,6 @@ class _SuraDetailsState extends State<SuraDetails> {
  void loadfile(int index)async{
    String sura =await rootBundle.loadString("assets/files/${index+1}.txt");
    List<String> lines=sura.split("\n");
-  // print(lines);
    verses =lines;
    setState(() {
 

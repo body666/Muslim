@@ -4,9 +4,4 @@ class SuraModel{
   SuraModel(this.name,this.index);
 
 
-
-
-
-
-
 }
