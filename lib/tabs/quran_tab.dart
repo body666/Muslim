@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/sura_details.dart';
 import 'package:islami/sura_model.dart';
 import 'package:islami/theming.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class QuranTab extends StatelessWidget {
   List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
   ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
@@ -21,20 +22,21 @@ class QuranTab extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-            child: Image.asset("assets/images/qur2an_screen_logo.png")),
+            child: Image.asset("assets/images/qur2an_screen_logo.png")
+        ),
 
         Divider(
-          thickness: 2,
+          thickness: 3,
           color: MyThemeData.primarycolor,
         ),
 
-        Text("SuraNames",
+        Text(
+          AppLocalizations.of(context)!.suraName,
           textAlign: TextAlign.center,
           style:
           Theme.of(context).textTheme.bodyMedium,),
-
         Divider(
-          thickness: 2,
+          thickness: 3,
           color: MyThemeData.primarycolor,
         ),
 
@@ -48,10 +50,10 @@ class QuranTab extends StatelessWidget {
                     arguments: SuraModel(SuraNames[index], index) );
                   },
                   child: Text(
-                    SuraNames[index],
+                      SuraNames[index],
                       textAlign: TextAlign.center,
-                     style:
-                    Theme.of(context).textTheme.bodySmall,
+                      style:
+                        Theme.of(context).textTheme.bodySmall,
                     ),
                 );
               },

@@ -26,6 +26,7 @@ class HadethDetails extends StatelessWidget {
           shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(
+                width: 2,
                 color: MyThemeData.primarycolor,
               )
           ),
@@ -41,7 +42,7 @@ class HadethDetails extends StatelessWidget {
                   return Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text(
-                      "{args.content[index]}",
+                      "${args.content[index]}",
                       textAlign:TextAlign.center ,),
                   );
                 },
