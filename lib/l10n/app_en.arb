@@ -2,6 +2,9 @@
   "appTitle": "Islami",
   "suraName": "Sura Name",
   "ahadeth" : "Ahadeth",
-  "Sebha Counter": "Sebha Counter"
+  "sebhaCounter": "Sebha Counter",
+  "holyQuranRadio": " holy quran radio",
+  "english": "English",
+  "arabic": "Arabic"
   
 }
