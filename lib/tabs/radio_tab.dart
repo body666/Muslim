@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islami/providers/My_provider.dart';
-import 'package:islami/theming.dart';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 class RadioTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

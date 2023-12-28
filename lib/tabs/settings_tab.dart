@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:islami/providers/My_provider.dart';
-import 'package:islami/theming.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../bottom_sheets/show_language_bottom_sheet.dart';

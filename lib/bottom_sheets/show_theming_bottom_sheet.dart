@@ -25,12 +25,12 @@ class ThemingBottomSheet extends StatelessWidget {
                   AppLocalizations.of(context)!.light,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color:provider.themeData==ThemeMode.light?
-                          Theme.of(context)!.colorScheme.onSecondary
+                          Theme.of(context).colorScheme.onSecondary
                           :Colors.white
                   ),
                 ),
                 provider.themeData==ThemeMode.light
-                    ? Icon(Icons.done, color: Theme.of(context)!.colorScheme.onSecondary)
+                    ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
                     : SizedBox.shrink(),
               ],
             ),
@@ -47,12 +47,12 @@ class ThemingBottomSheet extends StatelessWidget {
                   AppLocalizations.of(context)!.dark,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: provider.themeData==ThemeMode.dark?
-                      Theme.of(context)!.colorScheme.onSecondary
+                      Theme.of(context).colorScheme.onSecondary
                           :MyThemeData.blackcolor
                   ),
                 ),
                 provider.themeData==ThemeMode.dark
-                    ? Icon(Icons.done, color: Theme.of(context)!.colorScheme.onSecondary)
+                    ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
                     : SizedBox.shrink(),
               ],
             ),
