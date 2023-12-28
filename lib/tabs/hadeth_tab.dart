@@ -24,18 +24,18 @@ class _HadethTabState extends State<HadethTab> {
         Expanded(flex: 2, child: Image.asset("assets/images/hadeth_logo.png")),
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Text(AppLocalizations.of(context)!.ahadeth),
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Expanded(
           flex: 3,
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
-              color: MyThemeData.primarycolor,
+              color:Theme.of(context).colorScheme.onSecondary,
               indent: 40,
               endIndent: 40,
               thickness: 2,

@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale(provider.local),
       debugShowCheckedModeBanner: false,
+      themeMode:provider.themeData,
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.DarkTheme,
       initialRoute: HomeScreen.routeName,

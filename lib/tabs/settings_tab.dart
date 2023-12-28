@@ -4,6 +4,7 @@ import 'package:islami/theming.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../bottom_sheets/show_language_bottom_sheet.dart';
+import '../bottom_sheets/show_theming_bottom_sheet.dart';
 class SettingsTab extends StatefulWidget {
 
   @override
@@ -19,7 +20,13 @@ class _SettingsTabState extends State<SettingsTab> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text("Language"),
+          Text(AppLocalizations.of(context)!.language,
+            style: TextStyle(
+              color: provider.themeData==ThemeMode.light?
+                  Colors.black87:
+                  Colors.white
+            ),
+          ),
           InkWell(
             onTap: () {
               ShowLanguageBottomSheet();
@@ -30,7 +37,8 @@ class _SettingsTabState extends State<SettingsTab> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: MyThemeData.primarycolor
+                  width: 2,
+                  color:  Theme.of(context).colorScheme.onSecondary,
                 )
               ),
               child: Text(provider.local=="en"?
@@ -42,10 +50,16 @@ class _SettingsTabState extends State<SettingsTab> {
 
           SizedBox(height: 15,),
 
-          Text("Mode"),
+          Text(AppLocalizations.of(context)!.theme,
+          style: TextStyle(
+              color: provider.themeData==ThemeMode.dark?
+              Colors.white:
+              Colors.black87
+          ),
+          ),
           InkWell(
             onTap: () {
-             // ShowThemingBottomSheet();
+              ShowThemingBottomSheet();
             },
             child: Container(
               margin: EdgeInsets.only(left: 18),
@@ -53,10 +67,14 @@ class _SettingsTabState extends State<SettingsTab> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                      color: MyThemeData.primarycolor
+                    width: 2,
+                      color:Theme.of(context).colorScheme.onSecondary,
                   )
               ),
-              child: Text("Light"),
+              child: Text(provider.themeData==ThemeMode.light?
+                  AppLocalizations.of(context)!.light:
+              AppLocalizations.of(context)!.dark
+              ),
             ),
           ),
         ],
@@ -70,7 +88,7 @@ class _SettingsTabState extends State<SettingsTab> {
         shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(
-            color: MyThemeData.primarycolor,
+            color: Colors.transparent
           )
         ),
         context: context,
@@ -86,12 +104,12 @@ class _SettingsTabState extends State<SettingsTab> {
       shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(
-            color: MyThemeData.primarycolor,
+              color: Colors.transparent
           )
       ),
       context: context,
       builder: (context) {
-        return Container();
+        return ThemingBottomSheet();
       },
     );
   }

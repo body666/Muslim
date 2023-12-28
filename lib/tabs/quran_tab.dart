@@ -27,7 +27,7 @@ class QuranTab extends StatelessWidget {
 
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color:Theme.of(context).colorScheme.onSecondary,
         ),
 
         Text(
@@ -37,7 +37,7 @@ class QuranTab extends StatelessWidget {
           Theme.of(context).textTheme.bodyMedium,),
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color:Theme.of(context).colorScheme.onSecondary,
         ),
 
         Expanded(
@@ -61,7 +61,7 @@ class QuranTab extends StatelessWidget {
                 return Divider(
                   indent: 40,
                     endIndent: 40,
-                  color: MyThemeData.primarycolor,
+                  color: Theme.of(context).colorScheme.onSecondary,
                   thickness: 2,
                 );
               },

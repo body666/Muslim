@@ -3,36 +3,33 @@ import 'package:islami/theming.dart';
 import 'package:provider/provider.dart';
 import 'package:islami/providers/My_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-class LanguageBottomSheet extends StatelessWidget {
+
+class ThemingBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       color: Theme.of(context).colorScheme.onSurface,
-      padding:  const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       child: Column(
         children: [
           InkWell(
             onTap: () {
-              provider.ChangeLanguage("en");
+              provider.ChangeTheme(ThemeMode.light);
               Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.english,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color:
-                      provider.local=="en"?
-                      Theme.of(context)!.colorScheme.onSecondary
-                      :Theme.of(context)!.colorScheme.onBackground
-
+                  AppLocalizations.of(context)!.light,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color:provider.themeData==ThemeMode.light?
+                          Theme.of(context)!.colorScheme.onSecondary
+                          :Colors.white
                   ),
                 ),
-                  provider.local=="en"
+                provider.themeData==ThemeMode.light
                     ? Icon(Icons.done, color: Theme.of(context)!.colorScheme.onSecondary)
                     : SizedBox.shrink(),
               ],
@@ -40,24 +37,21 @@ class LanguageBottomSheet extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              provider.ChangeLanguage("ar");
+              provider.ChangeTheme(ThemeMode.dark);
               Navigator.pop(context);
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-             AppLocalizations.of(context)!.arabic,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color:
-                  provider.local=="ar"?
-                  Theme.of(context)!.colorScheme.onSecondary
-                      :Theme.of(context)!.colorScheme.onBackground
+                  AppLocalizations.of(context)!.dark,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: provider.themeData==ThemeMode.dark?
+                      Theme.of(context)!.colorScheme.onSecondary
+                          :MyThemeData.blackcolor
                   ),
                 ),
-                 provider.local=="ar"
+                provider.themeData==ThemeMode.dark
                     ? Icon(Icons.done, color: Theme.of(context)!.colorScheme.onSecondary)
                     : SizedBox.shrink(),
               ],
