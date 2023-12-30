@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/providers/My_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../bottom_sheets/show_language_bottom_sheet.dart';
-import '../bottom_sheets/show_theming_bottom_sheet.dart';
+import 'show_language_bottom_sheet.dart';
+import 'show_theming_bottom_sheet.dart';
 class SettingsTab extends StatefulWidget {
 
   @override
@@ -86,7 +86,7 @@ class _SettingsTabState extends State<SettingsTab> {
       isScrollControlled: false,
         shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.transparent
           )
         ),
@@ -102,7 +102,7 @@ class _SettingsTabState extends State<SettingsTab> {
       isScrollControlled: false,
       shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
               color: Colors.transparent
           )
       ),

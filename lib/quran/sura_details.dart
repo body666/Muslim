@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/providers/My_provider.dart';
-import 'package:islami/sura_model.dart';
+import 'package:islami/quran/sura_model.dart';
 import 'package:provider/provider.dart';
 class SuraDetails extends StatefulWidget {
 static const String routeName ="SuraDetails";

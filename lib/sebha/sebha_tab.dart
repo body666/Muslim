@@ -67,7 +67,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
           SizedBox(height: 50),
           Text(  AppLocalizations.of(context)!.sebhaCounter,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold
           ),),
@@ -79,7 +79,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 borderRadius: BorderRadius.circular(25)
               ),
               child: Text("$counter",
-                style: TextStyle(
+                style: const TextStyle(
                 fontSize: 30,
                     fontWeight: FontWeight.bold
               ),
@@ -93,7 +93,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 borderRadius: BorderRadius.circular(30)
             ),
               child:Text(zekr[currentIndex],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                 ),
               )
