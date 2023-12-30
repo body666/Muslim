@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/sura_model.dart';
-import 'package:islami/theming.dart';
+import 'package:islami/providers/My_provider.dart';
+import 'package:islami/quran/sura_model.dart';
+import 'package:provider/provider.dart';
 class SuraDetails extends StatefulWidget {
 static const String routeName ="SuraDetails";
 
@@ -12,6 +13,7 @@ static const String routeName ="SuraDetails";
 class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     SuraModel args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if(verses.isEmpty){
       loadfile(args.index);
@@ -20,7 +22,12 @@ class _SuraDetailsState extends State<SuraDetails> {
     return  Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/default_bg.png"),
+          image: AssetImage(
+            provider.themeData==ThemeMode.light?
+                "assets/images/default_bg.png"
+                :"assets/images/dark_bg.png",
+
+          ),
           fit: BoxFit.cover
         )
       ),
@@ -31,19 +38,21 @@ class _SuraDetailsState extends State<SuraDetails> {
           ),
         ),
         body: Card(
+          color: Theme.of(context).colorScheme.surface,
           elevation: 14,
           margin: EdgeInsets.all(18),
           shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25),
             borderSide: BorderSide(
               width: 2,
-              color: MyThemeData.primarycolor,
+              color: Colors.transparent,
             )
           ),
           child: Padding(
             padding: const EdgeInsets.all(18),
             child: ListView.separated(
                  separatorBuilder:(context, index) => Divider(
+                 //  color: Colors.transparent,
                           indent: 40,
                         endIndent:40 ,
                        thickness: 1,
@@ -52,7 +61,12 @@ class _SuraDetailsState extends State<SuraDetails> {
                   return Directionality(
                     textDirection: TextDirection.rtl,
                     child: Text("${verses[index]}(${index+1})",
-                      textAlign:TextAlign.center ,),
+                      textAlign:TextAlign.center ,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary
+                      ),
+
+                    ),
                   );
                 },
             itemCount: verses.length),

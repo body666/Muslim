@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/hadeth_details.dart';
-import 'package:islami/hadeth_model.dart';
-import 'package:islami/theming.dart';
+import 'package:islami/hadeth/hadeth_details.dart';
+import 'package:islami/hadeth/hadeth_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadethTab extends StatefulWidget {
@@ -24,18 +23,18 @@ class _HadethTabState extends State<HadethTab> {
         Expanded(flex: 2, child: Image.asset("assets/images/hadeth_logo.png")),
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Text(AppLocalizations.of(context)!.ahadeth),
         Divider(
           thickness: 3,
-          color: MyThemeData.primarycolor,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         Expanded(
           flex: 3,
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
-              color: MyThemeData.primarycolor,
+              color:Theme.of(context).colorScheme.onSecondary,
               indent: 40,
               endIndent: 40,
               thickness: 2,

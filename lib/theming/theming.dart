@@ -4,6 +4,10 @@ class MyThemeData{
 static const blackcolor= Color(0xFF242424);
 static const primarycolor= Color(0xFFB7935F);
 
+static const primarycolorDark=Color(0xFF141A2E);
+static const onprimarycolorDark= Color(0xFFFACC1D);
+
+
  static ThemeData lightTheme = ThemeData(
      scaffoldBackgroundColor: Colors.transparent,
      appBarTheme: AppBarTheme(
@@ -36,7 +40,18 @@ static const primarycolor= Color(0xFFB7935F);
      backgroundColor: primarycolor,
      selectedItemColor:blackcolor,
      unselectedItemColor: Colors.white,
-   )
+   ),
+   colorScheme: const ColorScheme(
+       brightness: Brightness.light,
+       primary:primarycolor,
+       onPrimary: blackcolor,
+       secondary:blackcolor ,
+       onSecondary: primarycolor,
+       error: Colors.red, onError: Colors.red,
+       background:Colors.white, onBackground:blackcolor,
+       surface: Color(0xFFC7B497),
+       onSurface: Color(0xFFF8F8F8)
+   ),
    // useMaterial3: true,
  );
 
@@ -44,6 +59,9 @@ static const primarycolor= Color(0xFFB7935F);
      scaffoldBackgroundColor: Colors.transparent,
      appBarTheme: AppBarTheme(
        backgroundColor: Colors.transparent,
+       iconTheme: IconThemeData(
+           color: Colors.white
+       ),
        centerTitle: true,
        elevation: 0,
      ),
@@ -51,20 +69,37 @@ static const primarycolor= Color(0xFFB7935F);
        bodyLarge: GoogleFonts.elMessiri(
          fontSize: 30,
          fontWeight: FontWeight.bold,
-         color: Color(0xFF242424),
+         color:  Colors.white,
        ),
        bodySmall: GoogleFonts.elMessiri(
          fontSize: 20,
          fontWeight: FontWeight.w100,
-         color: Color(0xFFFFFFFF),
+           color: Colors.white
        ),
        bodyMedium: GoogleFonts.elMessiri(
          fontSize: 25,
          fontWeight: FontWeight.w600,
-         color: Color(0xFF242424),
+           color: Colors.white
        ),
-     )
+     ),
+     bottomNavigationBarTheme: BottomNavigationBarThemeData(
+       type:BottomNavigationBarType.shifting ,
+       backgroundColor: primarycolorDark,
+       selectedItemColor:onprimarycolorDark,
+       unselectedItemColor: Colors.white,
+     ),
+     colorScheme: ColorScheme(
+         brightness: Brightness.dark,
+         primary:primarycolorDark,
+         onPrimary: onprimarycolorDark,
+         secondary:onprimarycolorDark ,
+         onSecondary: onprimarycolorDark,
+         error: Colors.red, onError: Colors.red,
+         background:primarycolorDark, onBackground: Colors.white,
+         surface: primarycolorDark,
+         onSurface: Color(0xFF141A2E)
    // useMaterial3: true,
+     )
  );
 
 

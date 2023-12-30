@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:islami/theming.dart';
+import 'package:islami/providers/My_provider.dart';
+import 'package:provider/provider.dart';
 import 'hadeth_model.dart';
+import 'package:flutter/services.dart';
 class HadethDetails extends StatelessWidget {
   static const String routeName="HadethDetails";
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     var args=ModalRoute.of(context)
         ?.settings.arguments as HadethModel;
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/default_bg.png"),
+              image: AssetImage(
+                provider.themeData==ThemeMode.light?
+                    "assets/images/default_bg.png"
+                    :"assets/images/dark_bg.png",
+              ),
               fit: BoxFit.cover
           )
       ),
@@ -21,13 +28,14 @@ class HadethDetails extends StatelessWidget {
           ),
         ),
         body: Card(
+          color: Theme.of(context).colorScheme.surface,
           elevation: 14,
           margin: const EdgeInsets.all(18),
           shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
               borderSide: const BorderSide(
                 width: 2,
-                color: MyThemeData.primarycolor,
+                color:Colors.transparent,
               )
           ),
           child: Padding(
@@ -43,7 +51,12 @@ class HadethDetails extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     child: Text(
                       "${args.content[index]}",
-                      textAlign:TextAlign.center ,),
+                      textAlign:TextAlign.center ,
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+
+                    ),
                   );
                 },
                 itemCount:args.content.length),
