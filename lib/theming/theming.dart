@@ -57,7 +57,7 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
 
  static ThemeData DarkTheme = ThemeData(
      scaffoldBackgroundColor: Colors.transparent,
-     appBarTheme: AppBarTheme(
+     appBarTheme: const AppBarTheme(
        backgroundColor: Colors.transparent,
        iconTheme: IconThemeData(
            color: Colors.white
@@ -82,13 +82,13 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
            color: Colors.white
        ),
      ),
-     bottomNavigationBarTheme: BottomNavigationBarThemeData(
+     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
        type:BottomNavigationBarType.shifting ,
        backgroundColor: primarycolorDark,
        selectedItemColor:onprimarycolorDark,
        unselectedItemColor: Colors.white,
      ),
-     colorScheme: ColorScheme(
+     colorScheme: const ColorScheme(
          brightness: Brightness.dark,
          primary:primarycolorDark,
          onPrimary: onprimarycolorDark,

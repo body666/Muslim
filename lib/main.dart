@@ -53,6 +53,7 @@ class _MyAppState extends State<MyApp> {
   String theme= prefs.getString("theme")?? "dark";
 
   provider.ChangeLanguage(lang);
+
   if(theme=="light")
    {
      provider.ChangeTheme(ThemeMode.light);
