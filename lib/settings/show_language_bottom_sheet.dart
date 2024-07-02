@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:islami/providers/My_provider.dart';
+// import 'package:islami/providers/My_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../providers/My_provider.dart';
 class LanguageBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,13 +29,13 @@ class LanguageBottomSheet extends StatelessWidget {
                       .copyWith(color:
                       provider.local=="en"?
                       Theme.of(context).colorScheme.onSecondary
-                      :Theme.of(context).colorScheme.onBackground
+                      :Theme.of(context).colorScheme.onSurface
 
                   ),
                 ),
                   provider.local=="en"
                     ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),
@@ -53,12 +55,12 @@ class LanguageBottomSheet extends StatelessWidget {
                       .copyWith(color:
                   provider.local=="ar"?
                   Theme.of(context).colorScheme.onSecondary
-                      :Theme.of(context).colorScheme.onBackground
+                      :Theme.of(context).colorScheme.onSurface
                   ),
                 ),
                  provider.local=="ar"
-                    ? Icon(Icons.done, color: Theme.of(context)!.colorScheme.onSecondary)
-                    : SizedBox.shrink(),
+                    ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

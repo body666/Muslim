@@ -1,12 +1,12 @@
+import 'package:Muslim/providers/My_provider.dart';
+import 'package:Muslim/quran/quran_tab.dart';
+import 'package:Muslim/radio/radio_tab.dart';
+import 'package:Muslim/sebha/sebha_tab.dart';
+import 'package:Muslim/settings/settings_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/providers/My_provider.dart';
-import 'package:islami/hadeth/hadeth_tab.dart';
-import 'package:islami/quran/quran_tab.dart';
-import 'package:islami/radio/radio_tab.dart';
-import 'package:islami/sebha/sebha_tab.dart';
-import 'package:islami/settings/settings_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+import 'hadeth/hadeth_tab.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName="HomeScreen";
   @override
@@ -43,27 +43,27 @@ class _HomeScreenState extends State<HomeScreen> {
             },
             items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/images/icon_quran.png")),
+                  icon: const ImageIcon(AssetImage("assets/images/icon_quran.png")),
                   label:  "Quran",
                 backgroundColor: Theme.of(context).colorScheme.primary
                  ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/images/icon_hadeth.png")),
+                  icon: const ImageIcon(AssetImage("assets/images/icon_hadeth.png")),
                   label:  "Ahadeth",
                   backgroundColor: Theme.of(context).colorScheme.primary
                    ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/images/icon_sebha.png")),
+                  icon: const ImageIcon(AssetImage("assets/images/icon_sebha.png")),
                   label:  "Sebha",
                   backgroundColor: Theme.of(context).colorScheme.primary
                  ),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/images/icon_radio.png")),
+                  icon: const ImageIcon(AssetImage("assets/images/icon_radio.png")),
                   label:  "Radio",
                   backgroundColor: Theme.of(context).colorScheme.primary
                  ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings),
+                  icon: const Icon(Icons.settings),
                   label:  "Settings",
                   backgroundColor: Theme.of(context).colorScheme.primary
                ),

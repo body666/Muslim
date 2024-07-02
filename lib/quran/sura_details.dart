@@ -1,8 +1,8 @@
+import 'package:Muslim/quran/sura_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami/providers/My_provider.dart';
-import 'package:islami/quran/sura_model.dart';
 import 'package:provider/provider.dart';
+import '../providers/My_provider.dart';
 class SuraDetails extends StatefulWidget {
 static const String routeName ="SuraDetails";
 
@@ -18,7 +18,6 @@ class _SuraDetailsState extends State<SuraDetails> {
     if(verses.isEmpty){
       loadfile(args.index);
     }
-
     return  Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -26,7 +25,6 @@ class _SuraDetailsState extends State<SuraDetails> {
             provider.themeData==ThemeMode.light?
                 "assets/images/default_bg.png"
                 :"assets/images/dark_bg.png",
-
           ),
           fit: BoxFit.cover
         )
@@ -38,12 +36,12 @@ class _SuraDetailsState extends State<SuraDetails> {
           ),
         ),
         body: Card(
-          color: Theme.of(context).colorScheme.surface,
+          color: Theme.of(context).colorScheme.onSurface,
           elevation: 14,
-          margin: EdgeInsets.all(18),
+          margin: const EdgeInsets.all(18),
           shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(25),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               width: 2,
               color: Colors.transparent,
             )
@@ -51,7 +49,7 @@ class _SuraDetailsState extends State<SuraDetails> {
           child: Padding(
             padding: const EdgeInsets.all(18),
             child: ListView.separated(
-                 separatorBuilder:(context, index) => Divider(
+                 separatorBuilder:(context, index) => const Divider(
                  //  color: Colors.transparent,
                           indent: 40,
                         endIndent:40 ,
@@ -75,14 +73,13 @@ class _SuraDetailsState extends State<SuraDetails> {
       ),
     );
   }
-  List<String> verses=[];
+ List<String> verses=[];
  void loadfile(int index)async{
-   String sura =await rootBundle.loadString("assets/files/${index+1}.txt");
-   List<String> lines=sura.split("\n");
+  String sura =await rootBundle.loadString("assets/files/${index+1}.txt");
+  List<String> lines=sura.split("\n");
    verses =lines;
    setState(() {
+ });
 
-   });
-
-  }
+ }
 }

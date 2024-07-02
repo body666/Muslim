@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-
 import '../providers/My_provider.dart';
 class SebhaTab extends StatefulWidget {
   @override
@@ -21,12 +20,12 @@ class _SebhaTabState extends State<SebhaTab> {
   Widget build(BuildContext context) {
     var provider=Provider.of<MyProvider>(context);
     var size=MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Stack(
             alignment: Alignment.topCenter,
             children: [
@@ -42,7 +41,7 @@ class _SebhaTabState extends State<SebhaTab> {
                       child: InkWell(
                         onTap: () {
                          setState(() {
-                           OnSebhaClicked();
+                           onSebhaClicked();
                          });
                         },
                         child: Image.asset(
@@ -65,15 +64,15 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ],
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Text(  AppLocalizations.of(context)!.sebhaCounter,
           style: const TextStyle(
-            fontSize: 22,
+            fontSize: 25,
             fontWeight: FontWeight.bold
           ),),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Container(
-            padding: EdgeInsets.all(25),
+            padding: const EdgeInsets.all(25),
               decoration: BoxDecoration(
                 color:Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(25)
@@ -85,16 +84,35 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
               )
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
             decoration: BoxDecoration(
                 color :Theme.of(context).colorScheme.onSecondary,
                 borderRadius: BorderRadius.circular(30)
             ),
-              child:Text(zekr[currentIndex],
-                style: const TextStyle(
-                  color: Colors.white,
+              child:InkWell(
+                onTap:onSebhaClicked ,
+                child: Text(zekr[currentIndex],
+                  style: const TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              )
+          ),
+          const SizedBox(height:20),
+          Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
+              decoration: BoxDecoration(
+                  color :Theme.of(context).colorScheme.onSecondary,
+                  borderRadius: BorderRadius.circular(30)
+              ),
+              child:InkWell(
+                onTap:ResetCounter ,
+                child: const Text("Reset Counter",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               )
           )
@@ -102,7 +120,8 @@ class _SebhaTabState extends State<SebhaTab> {
       ),
     ) ;
   }
-  void OnSebhaClicked(){
+
+  Future<void> onSebhaClicked() async {
     angle+=3;
     if(counter==33)
      {
@@ -117,4 +136,11 @@ class _SebhaTabState extends State<SebhaTab> {
     });
 
   }
+  void ResetCounter(){
+    counter=0;
+    setState(() {
+
+    });
+  }
+
 }

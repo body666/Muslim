@@ -1,9 +1,9 @@
+import 'package:Muslim/quran/sura_details.dart';
+import 'package:Muslim/quran/sura_model.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/quran/sura_details.dart';
-import 'package:islami/quran/sura_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class QuranTab extends StatelessWidget {
-  List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
+  final List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
   ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
   ,"النّور","الفرقان","الشعراء","النّمل","القصص","العنكبوت","الرّوم","لقمان","السجدة","الأحزاب","سبأ"
   ,"فاطر","يس","الصافات","ص","الزمر","غافر","فصّلت","الشورى","الزخرف","الدّخان","الجاثية","الأحقاف"
@@ -66,8 +66,6 @@ class QuranTab extends StatelessWidget {
               },
               itemCount: SuraNames.length),
         )
-
-
       ],
     );
   }
