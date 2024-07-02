@@ -10,7 +10,7 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
 
  static ThemeData lightTheme = ThemeData(
      scaffoldBackgroundColor: Colors.transparent,
-     appBarTheme: AppBarTheme(
+     appBarTheme: const AppBarTheme(
        backgroundColor: Colors.transparent,
        centerTitle: true,
        elevation: 0,
@@ -35,7 +35,7 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
          color: blackcolor,
        ),
      ),
-   bottomNavigationBarTheme: BottomNavigationBarThemeData(
+   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
      type:BottomNavigationBarType.shifting ,
      backgroundColor: primarycolor,
      selectedItemColor:blackcolor,
@@ -48,7 +48,7 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
        secondary:blackcolor ,
        onSecondary: primarycolor,
        error: Colors.red, onError: Colors.red,
-       background:Colors.white, onBackground:blackcolor,
+       // background:Colors.white, onBackground:Colors.white,
        surface: Color(0xFFC7B497),
        onSurface: Color(0xFFF8F8F8)
    ),
@@ -95,7 +95,7 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
          secondary:onprimarycolorDark ,
          onSecondary: onprimarycolorDark,
          error: Colors.red, onError: Colors.red,
-         background:primarycolorDark, onBackground: Colors.white,
+         // background:primarycolorDark, onBackground: primarycolorDark,
          surface: primarycolorDark,
          onSurface: Color(0xFF141A2E)
    // useMaterial3: true,

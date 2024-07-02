@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami/providers/My_provider.dart';
+// import 'package:islami/providers/My_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../providers/My_provider.dart';
 import 'show_language_bottom_sheet.dart';
 import 'show_theming_bottom_sheet.dart';
 class SettingsTab extends StatefulWidget {

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:islami/theming/theming.dart';
+// import 'package:islami/theming/theming.dart';
 import 'package:provider/provider.dart';
-import 'package:islami/providers/My_provider.dart';
+// import 'package:islami/providers/My_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../providers/My_provider.dart';
+import '../theming/theming.dart';
 
 class ThemingBottomSheet extends StatelessWidget {
   @override
@@ -31,7 +34,7 @@ class ThemingBottomSheet extends StatelessWidget {
                 ),
                 provider.themeData==ThemeMode.light
                     ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),
@@ -53,7 +56,7 @@ class ThemingBottomSheet extends StatelessWidget {
                 ),
                 provider.themeData==ThemeMode.dark
                     ? Icon(Icons.done, color: Theme.of(context).colorScheme.onSecondary)
-                    : SizedBox.shrink(),
+                    : const SizedBox.shrink(),
               ],
             ),
           ),

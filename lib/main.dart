@@ -1,13 +1,13 @@
+import 'package:Muslim/providers/My_provider.dart';
+import 'package:Muslim/quran/sura_details.dart';
+import 'package:Muslim/theming/theming.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/hadeth/hadeth_details.dart';
-import 'package:islami/home_screen.dart';
-import 'package:islami/providers/My_provider.dart';
-import 'package:islami/quran/sura_details.dart';
-import 'package:islami/theming/theming.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'hadeth/hadeth_details.dart';
+import 'home_screen.dart';
+import 'package:flutter/widgets.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     create: (context) =>MyProvider(),
