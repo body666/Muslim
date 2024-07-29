@@ -1,6 +1,7 @@
 {
-  "appTitle": "Islami",
+  "appTitle": "Muslim",
   "suraName": "Sura Name",
+  "versesNumber": "Verses Number",
   "ahadeth": "Ahadeth",
   "sebhaCounter": "Sebha Counter",
   "holyQuranRadio": " holy quran radio",
@@ -9,5 +10,8 @@
   "theme": "Theme",
   "language": "Language",
   "light":"Light",
-  "dark": "Dark"
+  "dark": "Dark",
+  "resetCounter": "Reset",
+  "connectingofrdaio": "Connecting...",
+  "addZekr":"Add Zekr"
 }

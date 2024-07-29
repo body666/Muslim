@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:islami/hadeth/hadeth_details.dart';
-// import 'package:islami/hadeth/hadeth_model.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import 'hadeth_details.dart';
 import 'hadeth_model.dart';
 

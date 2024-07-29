@@ -9,7 +9,7 @@ class ApiManager {
       RadiosModel radiosModel = RadiosModel.fromJson(jsonDecode(response.body));
       return radiosModel.radios;
     } catch (e) {
-     // print(e);
+      print(e);
     }
     return null;
   }

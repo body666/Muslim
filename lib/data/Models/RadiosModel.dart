@@ -4,7 +4,7 @@ class RadiosModel{
   RadiosModel({
       this.radios,});
 
-  RadiosModel.fromJson(dynamic json) {
+   RadiosModel.fromJson(dynamic json) {
     if (json['radios'] != null) {
       radios = [];
       json['radios'].forEach((v) {
@@ -12,7 +12,7 @@ class RadiosModel{
       });
     }
   }
-  List<Radios>? radios;
+   List<Radios>? radios;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -31,12 +31,12 @@ class RadiosModel{
 
 class Radios {
   Radios({
-      this.id, 
-      this.name, 
-      this.url, 
+      this.id,
+      this.name,
+      this.url,
       this.recentDate,});
 
-  Radios.fromJson(dynamic json) {
+   Radios.fromJson(dynamic json) {
     id = json['id'];
     name = json['name'];
     url = json['url'];

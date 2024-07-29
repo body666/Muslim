@@ -1,9 +1,9 @@
+import 'package:Muslim/data/Models/RadiosModel.dart';
+import 'package:Muslim/data/api_manager.dart';
 import 'package:Muslim/radio/radio_item.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import '../data/Models/RadiosModel.dart';
-import '../data/api_manager.dart';
-
+import 'package:just_audio/just_audio.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class RadioTab extends StatefulWidget {
   @override
   State<RadioTab> createState() => _RadioTabState();
@@ -18,12 +18,11 @@ class _RadioTabState extends State<RadioTab> {
     audioPlayer = AudioPlayer();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    audioPlayer
-        .dispose(); // to pause the audio when we left radio screen(that remove the sound from memory )
-  }
+  // @override
+  // void dispose() {
+  //   audioPlayer.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,19 +44,37 @@ class _RadioTabState extends State<RadioTab> {
               if (snapshot.hasError) {
                 return Center(child: Text(snapshot.error.toString()));
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return SizedBox(
-                  height: height * 0.3,
-                  child: ListView.builder(
-                    physics: const PageScrollPhysics(),
-                    itemExtent: width,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: snapshot.data?.length ?? 0,
-                    itemBuilder: (context, index) => RadioItem(
-                        radio: snapshot.data![index], audioPlayer: audioPlayer),
+                return Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(AppLocalizations.of(context)!.connectingofrdaio),
+                      const SizedBox(width: 10),
+                      const CircularProgressIndicator(),
+                    ],
                   ),
                 );
+              } else {
+                if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                  return SizedBox(
+                    height: height * 0.3,
+                    child: ListView.builder(
+                      physics: const PageScrollPhysics(),
+                      itemExtent: width,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: snapshot.data?.length ?? 0,
+                      itemBuilder: (context, index) => RadioItem(
+                        radiosList: snapshot.data!,
+                        audioPlayer: audioPlayer,
+                        initialIndex: index,
+                      ),
+                    ),
+                  );
+                } else {
+                  return const Center(
+                    child: Text("Something went wrong"),
+                  );
+                }
               }
             }),
         const Spacer(),
