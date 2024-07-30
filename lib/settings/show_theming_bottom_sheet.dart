@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:islami/theming/theming.dart';
 import 'package:provider/provider.dart';
-// import 'package:islami/providers/My_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../providers/My_provider.dart';
+import '../providers/settings_provider.dart';
 import '../theming/theming.dart';
-
 class ThemingBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

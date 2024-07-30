@@ -1,6 +1,7 @@
 {
-  "appTitle": "إسلامي",
+  "appTitle": "مسلم",
   "suraName": "إسم السوره ",
+  "versesNumber": "عدد الايات",
   "ahadeth" : "الأحاديث",
   "sebhaCounter": "عدد التسبيحات",
   "holyQuranRadio": "إذاعه القران الكريم",
@@ -9,7 +10,10 @@
   "theme": "الثيمه",
   "language": "اللغه",
   "light":"فاتح",
-  "dark": "داكن"
+  "dark": "داكن",
+  "resetCounter":"إعاده ",
+  "connectingofrdaio": "تحميل...",
+  "addZekr": "إضافه ذكر"
 
 
 

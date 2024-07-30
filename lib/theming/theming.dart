@@ -11,12 +11,14 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
  static ThemeData lightTheme = ThemeData(
      scaffoldBackgroundColor: Colors.transparent,
      appBarTheme: const AppBarTheme(
+       actionsIconTheme: IconThemeData(),
        backgroundColor: Colors.transparent,
        centerTitle: true,
        elevation: 0,
        iconTheme: IconThemeData(
          color: MyThemeData.blackcolor
-       )
+       ),
+
      ),
      textTheme: TextTheme(
        bodyLarge: GoogleFonts.elMessiri(
@@ -47,7 +49,8 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
        onPrimary: blackcolor,
        secondary:blackcolor ,
        onSecondary: primarycolor,
-       error: Colors.red, onError: Colors.red,
+       error: Colors.red,
+       onError: Colors.white,
        // background:Colors.white, onBackground:Colors.white,
        surface: Color(0xFFC7B497),
        onSurface: Color(0xFFF8F8F8)
@@ -92,11 +95,11 @@ static const onprimarycolorDark= Color(0xFFFACC1D);
          brightness: Brightness.dark,
          primary:primarycolorDark,
          onPrimary: onprimarycolorDark,
-         secondary:onprimarycolorDark ,
+         secondary:Colors.white,
          onSecondary: onprimarycolorDark,
-         error: Colors.red, onError: Colors.red,
+         error: Colors.red, onError: blackcolor,
          // background:primarycolorDark, onBackground: primarycolorDark,
-         surface: primarycolorDark,
+         surface:primarycolorDark,
          onSurface: Color(0xFF141A2E)
    // useMaterial3: true,
      )

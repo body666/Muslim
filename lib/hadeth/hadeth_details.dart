@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/My_provider.dart';
+import '../providers/settings_provider.dart';
 import 'hadeth_model.dart';
 class HadethDetails extends StatelessWidget {
   static const String routeName="HadethDetails";
@@ -25,11 +25,15 @@ class HadethDetails extends StatelessWidget {
       child: Scaffold(
         appBar:AppBar(
           title: Text(args.title,style:
-          Theme.of(context).textTheme.bodyLarge
+          TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+            fontWeight: FontWeight.bold,
+            fontSize: 27
+          )
           ),
         ),
         body: Card(
-          color: Theme.of(context).colorScheme.onSurface,
+          color: Theme.of(context).colorScheme.surface,
           elevation: 14,
           margin: const EdgeInsets.all(18),
           shape: OutlineInputBorder(
@@ -43,6 +47,7 @@ class HadethDetails extends StatelessWidget {
             padding: const EdgeInsets.all(18),
             child: ListView.separated(
                 separatorBuilder:(context, index) => const Divider(
+                  color: Colors.transparent,
                   indent: 40,
                   endIndent:40 ,
                   thickness: 1,

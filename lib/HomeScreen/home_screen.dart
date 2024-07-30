@@ -1,4 +1,4 @@
-import 'package:Muslim/providers/My_provider.dart';
+import 'package:Muslim/providers/settings_provider.dart';
 import 'package:Muslim/quran/quran_tab.dart';
 import 'package:Muslim/radio/radio_tab.dart';
 import 'package:Muslim/sebha/sebha_tab.dart';
@@ -6,7 +6,7 @@ import 'package:Muslim/settings/settings_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'hadeth/hadeth_tab.dart';
+import '../hadeth/hadeth_tab.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName="HomeScreen";
   @override
@@ -25,15 +25,27 @@ class _HomeScreenState extends State<HomeScreen> {
           "assets/images/default_bg.png"
           :"assets/images/dark_bg.png",
           width: double.infinity,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
         Scaffold(
         appBar: AppBar(
+          leading:IconButton(
+            iconSize: 30,
+            icon: Icon(provider.themeData==ThemeMode.light?
+            Icons.sunny:Icons.brightness_3_sharp),
+            onPressed: () {
+              provider.themeData==ThemeMode.light?
+              provider.ChangeTheme(ThemeMode.dark):
+              provider.ChangeTheme(ThemeMode.light);
+            },
+
+          ) ,
           title: Text(
             AppLocalizations.of(context)!.appTitle,
             style:Theme.of(context).textTheme.bodyLarge,
           ),
          ),
+
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedindex,
             onTap: (value){
@@ -71,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: tabs[selectedindex],
         ),
+
       ],
     ) ;
   }
